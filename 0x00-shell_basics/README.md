@@ -1,24 +1,76 @@
-shell scripting
-file  0-current_working_directory = Write a script that prints the absolute path name of the current working directory.
-file 1-listit=Display the contents list of your current directory
-file 2-bring_me_home=Write a script that changes the working directory to the user’s home directory.
-file 3-listfiles=Display current directory contents in a long format
-file 4-listmorefiles = Display current directory contents, including hidden files (starting with .). Use the long format.
-file 5-listfilesdigitonly = Display current directory contents, long format ,with user and group IDs displayed numerically, And hidden files (starting with .)
-file 6-firstdirectory = Create a script that creates a directory named my_first_directory in the /tmp/ directory
-file 7-movethatfile = Move the file betty from /tmp/ to /tmp/my_first_directory
-file 8-firstdelete = Delete the file betty , The file betty is in /tmp/my_first_directory
-file 9-firstdirdeletion = Delete the directory my_first_directory that is in the /tmp directory.
-file 10-back = Write a script that changes the working directory to the previous one
-File: 11-lists = Write a script that lists all files (even ones with names beginning with a period character, which are normally hidden) in the current directory and the parent of the working directory and the /boot directory (in this order), in long format.
-File: 12-file_type = Write a script that prints the type of the file named iamafile. The file iamafile will be in the /tmp directory when we will run your script.
-File: 13-symbolic_link = Create a symbolic link to /bin/ls, named __ls__. The symbolic link should be created in the current working directory
-File: 14-copy_html = Create a script that copies all the HTML files from the current working directory to the parent of the working directory, but only copy files that did not exist in the parent of the working directory or were newer than the versions in the parent of the working directory, You can consider that all HTML files have the extension .html
-File: 100-lets_move = Create a script that moves all files beginning with an uppercase letter to the directory /tmp/u.
-file 101-clean_emacs = Create a script that deletes all files in the current working directory that end with the character ~
-File: 102-tree = Create a script that creates the directories welcome/, welcome/to/ and welcome/to/school in the current directory.
-File: 103-commas = Write a command that lists all the files and directories of the current directory, separated by commas (,) , Directory names should end with a slash (/) , Files and directories starting with a dot (.) should be listedThe listing should be alpha ordered, except for the directories . and .. which should be listed at the very beginning , Only digits and letters are used to sort; Digits should come first , You can assume that all the files we will test with will have at least one letter or one digit and The listing should end with a new line
-File: school.mgc  = Create a magic file school.mgc that can be used with the command file to detect School data files. School data files always contain the string SCHOOL at offset 0
+				0x00. Shell, basics
+		man or help:
+	cd
+	ls
+	pwd
+	less
+	file
+	ln
+	cp
+	mv
+	rm
+	mkdir
+	type
+	which
+	help
+	man
+	
+		General
+	What does RTFM mean?
+	What is a Shebang
+	
+		What is the Shell
+	What is the shell
+	What is the difference between a terminal and a shell
+	What is the shell prompt
+	How to use the history (the basics)
+	
+		Navigation
+	What do the commands or built-ins cd, pwd, ls do
+	How to navigate the filesystem
+	What are the . and .. directories
+	What is the working directory, how to print it and how to change it
+	What is the root directory
+	What is the home directory, and how to go there
+	What is the difference between the root directory and the home directory of the user root
+	What are the characteristics of hidden files and how to list them
+	What does the command cd - do
+	What does the ln command do
+	What do you find in the most common/important directories
+	What is a symbolic link
+	What is a hard link
+	What is the difference between a hard link and a symbolic link
 
-
-THIS WORK WAS DONE AS SCHOOL PROJECT: 
+				TASKS
+	0) Write a script that prints the absolute path name of the current working directory.
+	1) Display the contents list of your current directory.
+	2) Write a script that changes the working directory to the user’s home directory.
+	3) Display current directory contents in a long format
+	4) Display current directory contents, including hidden files (starting with .). Use the long format.
+	5) Display current directory contents.
+		Long format
+		with user and group IDs displayed numerically
+		And hidden files (starting with .)
+	6) Create a script that creates a directory named my_first_directory in the /tmp/ directory.  file /tmp/my_first_directory/
+	7) Move the file betty from /tmp/ to /tmp/my_first_directory.
+	8) Delete the file betty. The file betty is in /tmp/my_first_directory
+	9) Delete the directory my_first_directory that is in the /tmp directory.
+	10) Write a script that changes the working directory to the previous one.
+	11) Write a script that lists all files (even ones with names beginning with a period character, which are normally hidden) in the current directory and the parent of the working directory and the /boot directory (in this order), in long format.
+	12) Write a script that prints the type of the file named iamafile. The file iamafile will be in the /tmp directory when we will run your script.
+	13) Create a symbolic link to /bin/ls, named __ls__. The symbolic link should be created in the current working directory
+		drwxrwxrwt 12 root   root   139264 Sep 20 03:24 ..
+		lrwxrwxrwx  1 ubuntu ubuntu      7 Sep 20 03:24 __ls__ -> /bin/ls
+	14) Create a script that copies all the HTML files from the current working directory to the parent of the working directory, but only copy files that did not exist in the parent of the working directory or were newer than the versions in the parent of the working directory.
+You can consider that all HTML files have the extension .html
+	15) Create a script that moves all files beginning with an uppercase letter to the directory /tmp/u.
+	16) Create a script that deletes all files in the current working directory that end with the character ~.
+	17) Create a script that creates the directories welcome/, welcome/to/ and welcome/to/school in the current directory.
+	18) Write a command that lists all the files and directories of the current directory, separated by commas (,).
+	Directory names should end with a slash (/)
+	Files and directories starting with a dot (.) should be listed
+	The listing should be alpha ordered, except for the directories . and .. which should be listed at the very beginning
+	Only digits and letters are used to sort; Digits should come first
+	You can assume that all the files we will test with will have at least one letter or one digit
+	The listing should end with a new line
+	19) Create a magic file school.mgc that can be used with the command file to detect School data files. School data files always contain the string SCHOOL at offset 0
