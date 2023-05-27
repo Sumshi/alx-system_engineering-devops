@@ -62,7 +62,7 @@
 		drwxrwxrwt 12 root   root   139264 Sep 20 03:24 ..
 		lrwxrwxrwx  1 ubuntu ubuntu      7 Sep 20 03:24 __ls__ -> /bin/ls
 	14) Create a script that copies all the HTML files from the current working directory to the parent of the working directory, but only copy files that did not exist in the parent of the working directory or were newer than the versions in the parent of the working directory.
-You can consider that all HTML files have the extension .html
+       You can consider that all HTML files have the extension .html
 	15) Create a script that moves all files beginning with an uppercase letter to the directory /tmp/u.
 	16) Create a script that deletes all files in the current working directory that end with the character ~.
 	17) Create a script that creates the directories welcome/, welcome/to/ and welcome/to/school in the current directory.
