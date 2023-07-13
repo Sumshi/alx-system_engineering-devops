@@ -11,6 +11,6 @@
 9) example put 1-next_9_tasks.png alx-system_engineering-devops/command_line_for_the_win/
 10) do the same for all other screenshots
 11) go back to the sandbox u will see all the screenshots in the specified directory
-12) push the files from the sandbox to your github
-13) pull them into your vagrant if u want
+12) git push the files from the sandbox to your github
+13) git pull them into your vagrant if u want
 		      congrats u have solved the challenge :)
