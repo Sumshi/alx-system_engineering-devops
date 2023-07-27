@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# displays the content of the file /etc/passwd
+# it only displays username, userid, home directory path for user
+
+while read -r passwd
+do
+	# delimeter is :, extracts the 1st, 3rd and 6th fields
+	echo "$passwd" | cut -d ':' -f1,3,6
+done < "/etc/passwd" # means that input is from file etc/passwd
