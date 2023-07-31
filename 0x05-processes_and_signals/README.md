@@ -1,5 +1,5 @@
 				0x05. Processes and signals
-		Resources
+		Resources to use
 Read or watch:
 Linux PID
 Linux process
