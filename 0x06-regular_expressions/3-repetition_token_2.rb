@@ -1,2 +1,3 @@
 #!/usr/bin/env ruby
-puts ARGV[0].scan(/hbt{1,4}n/).join
+# t+ mathes 1 or more occurence of t
+puts ARGV[0].scan(/hbt+n/).join
