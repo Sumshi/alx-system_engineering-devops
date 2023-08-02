@@ -2,5 +2,6 @@
 # This script displays listening ports
 # Shows the PID and name of the program to which each socket belongs
 # Shows listening sockets
-
+# -l option shows only listening sockets
+# -p displays the Process ID (PID) and the name of the process
 netstat -l --program
