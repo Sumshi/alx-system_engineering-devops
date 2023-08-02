@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # This pings an IP address received as an argument 5 times.
-
+# -c = number of ICMP echo request packets to send
 if [ $# -eq 0 ]
 then
   echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
