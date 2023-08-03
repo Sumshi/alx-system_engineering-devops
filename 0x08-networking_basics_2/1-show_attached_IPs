@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 # This displays all acive IPv4 addresses it’s executed on.
-
-ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | cut -b 11-
+# ifconfig display information about the network interfaces on a Unix
+# inet is the pattern that shows ipv4 addresses in the output of ifconfig
+# awk '{print $2}' is used to extract second field
+ifconfig | grep 'inet ' | awk '{print $2}'
