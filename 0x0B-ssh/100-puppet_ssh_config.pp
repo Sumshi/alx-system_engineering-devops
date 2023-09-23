@@ -1,9 +1,17 @@
-#!/usr/bin/env bash
 # Using Puppet to change our server configuration files
-# Configure SSH to use the private key ~/.ssh/school for authentication
+file_line { 'configure using private key ~/.ssh/school':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => '  IdentityFile ~/.ssh/school',
+}
+
+# Disable password authentication
+file_line { 'authenticate using a password':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => '  PasswordAuthentication no',
+}
+
 file { '/etc/ssh/ssh_config':
-  ensure  => present,
-  content =>"
-          IdentityFile ~/.ssh/school
-          PasswordAuthentication no"
+  ensure => present,
 }
