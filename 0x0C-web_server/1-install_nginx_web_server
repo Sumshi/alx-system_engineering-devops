@@ -14,5 +14,5 @@ sudo ufw allow 'Nginx HTTP'
 sudo echo "Hello, world!" > /var/www/html/index.nginx-debian.html
 
 # restart nginx without using systemct1
-#sudo service nginx start
-sudo service nginx restart
+sudo nginx start
+#sudo service nginx restart
