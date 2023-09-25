@@ -11,7 +11,7 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 
 # display hello world, tee comand writes and displays output
-sudo echo "Hello, world!" | sudo tee /var/www/html/index.nginx-debian.html
+sudo echo "Hello, world!" > /var/www/html/index.nginx-debian.html
 
 # restart nginx without using systemct1
-sudo service nginx restart
+sudo service nginx start
