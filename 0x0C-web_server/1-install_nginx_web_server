@@ -2,20 +2,20 @@
 # installing nginx on our server
 
 # updating packages
-sudo apt-get -y update
+apt-get -y update
 
-sudo apt-get -y upgrade
+#sudo apt-get -y upgrade
 
 # install nginx
-sudo apt-get -y install nginx
+apt-get -y install nginx
 
 # nginx must listen to port 80 by using ufw-uncomplicated firewall
 # nginx http corresponds to port 80 which is default port for http traffic
-sudo ufw allow 'Nginx HTTP'
+#sudo ufw allow 'Nginx HTTP'
 
 # display hello world, tee comand writes and displays output
-sudo echo "Hello, world!" | sudo tee /var/www/html/index.nginx-debian.html
+echo "Hello, world!" > /var/www/html/index.nginx-debian.html
 
 # restart nginx without using systemct1
-#sudo nginx start
-sudo service nginx restart
+service nginx start
+#sudo service nginx restart
