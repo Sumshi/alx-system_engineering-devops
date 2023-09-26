@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Update the package list and install Nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+# Create a new HTML file for redirection
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+# Configure Nginx to use the custom 404 page
+sudo sed -i '/server_name _;/a error_page 404 /custom_404.html;\nlocation = /custom_404.html {\n root /var/www/html;\n internal;\n }' /etc/nginx/sites-available/default
+sudo service nginx restart
