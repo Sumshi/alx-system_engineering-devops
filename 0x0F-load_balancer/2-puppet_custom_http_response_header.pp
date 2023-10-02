@@ -20,6 +20,7 @@ file_line { 'add custom header':
 ensure => present,
 path   => '/etc/nginx/nginx.conf',
 line   => "\tadd_header X-Served-By ${hostname};",
+match  => '^\\s*add_header X-Served-By',
 }
 
 # run or restart nginx
