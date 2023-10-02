@@ -1,6 +1,7 @@
+include stdlib
 # update packages
-exec {  'apt-update':
-command => '/usr/bin/apt-get -y update',
+exec {  'update server':
+command => '/usr/bin/apt-get update',
 }
 
 # install nginx
@@ -23,5 +24,6 @@ line   => "\tadd_header X-Served-By ${hostname};",
 
 # run or restart nginx
 service {'nginx':
-ensure => running,
+ensure  => running,
+require => Package['nginx'],
 }
