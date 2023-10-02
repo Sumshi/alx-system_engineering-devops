@@ -23,4 +23,4 @@ backend webservers
 ' >> /etc/haproxy/haproxy.cfg
 
 # restart for changes to appear
-sudo haproxy restart
+sudo service haproxy restart
