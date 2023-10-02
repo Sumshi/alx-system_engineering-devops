@@ -1,30 +1,27 @@
-include stdlib
-# update packages
-exec {  'update server':
-command => '/usr/bin/apt-get update',
+# Update package information
+exec { 'apt-update':
+  command => '/usr/bin/apt-get -y update',
 }
 
-# install nginx
+# Install Nginx package
 package { 'nginx':
-ensure => installed,
+  ensure => installed,
 }
 
-# basic hello world file
+# Create a basic HTML file
 file { '/var/www/html/index.html':
-ensure  => present,
-content => 'Hello World!',
+  content => 'Hello World!',
 }
 
-# Configure Nginx so that its HTTP response contains a custom header
+# Configure Nginx to add the custom HTTP header
 file_line { 'add custom header':
-ensure => present,
-path   => '/etc/nginx/nginx.conf',
-line   => "\tadd_header X-Served-By ${hostname};",
-match  => '^\\s*add_header X-Served-By',
+  ensure => present,
+  path   => '/etc/nginx/sites-available/default',
+  line   => "\tadd_header X-Served-By ${hostname};",
+  after  => 'server_name _;',
 }
 
-# run or restart nginx
-service {'nginx':
-ensure  => running,
-require => Package['nginx'],
+# Ensure Nginx is running
+service { 'nginx':
+  ensure => running,
 }
