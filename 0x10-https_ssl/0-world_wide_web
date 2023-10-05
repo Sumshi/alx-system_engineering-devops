@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Configure your domain zone so that the subdomain www points to your load-balancer IP
+
+domain_info() {
+    # output format
+    line=$(dig +short "$2"."$1")
+    echo "$2 $line" | awk '{print "The subdomain " $1 " is a A record and points to " $2}'
+}
+
+# checks the number of arguments
+if [ "$#" == 1 ]
+then
+  domain_info "$1" "www"
+  domain_info "$1" "lb-01"
+  domain_info "$1" "web-01"
+  domain_info "$1" "web-02"
+elif [ "$#" == 2 ]
+then
+  domain_info "$1" "$2"
+fi
