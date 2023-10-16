@@ -9,4 +9,4 @@ sed -i "s/80/8080/g" /etc/nginx/sites-available/default
 # only the owner can read and write to the file, others can only read
 chmod 644 /etc/nginx/nginx.conf
 # start nginx as  nginx user, use -u to select nginx user
-sudo -u nginx service nginx start
+sudo -u nginx service nginx restart
