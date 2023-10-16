@@ -4,7 +4,7 @@
 sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
 # nginx must be listening on all active port 8080, replace port 80 with 8080
 # s = substitute all occurence of 80 with 8080, g = globally across the file
-sed -i "s/80/8080/g" /etc/nginx/sites-available/default
+sed -i "s/80/8080/" /etc/nginx/sites-enabled/default
 # update the permission of the file /etc/nginx/nginx.conf to be restrictive
 # only the owner can read and write to the file, others can only read
 chmod 644 /etc/nginx/nginx.conf
