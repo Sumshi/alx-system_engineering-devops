@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # make nginx to run as nginx user
 # replace the line user www-data with user nginx in the file /etc/nginx/nginx.conf
-sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
+sed -i "s/# user www-data/user nginx/" /etc/nginx/nginx.conf
 # nginx must be listening on all active port 8080
 sed -i "s/80/8080/g" /etc/nginx/sites-available/default
 # sed -i "s/\b80\b/8080/g" /etc/nginx/sites-available/default
