@@ -108,7 +108,9 @@ mysql> SELECT col_1, col_2 FROM tb_name;
 mysql> CREATE USER 'replica_user'@'%' IDENTIFIED BY 'replica_user_pwd';
 
 mysql> GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'%';
-
+SELECT user, Repl_slave_priv FROM mysql.user;
+-- error that occurs for permission add this line
+GRANT SELECT ON mysql.user TO 'holberton_user'@'localhost';
 mysql> FLUSH PRIVILEGES;
 
 -- to verify
@@ -123,67 +125,33 @@ mysql> exit
 # bind-address = 127.0.0.1
 server-id = 1
 log_bin = /var/log/mysql/mysql-bin.log
-binlog_do_db = db_name
+binlog_do_db = tyrell_corp
 ```
-- Then you enable incoming connection to port 3306 and restart mysql-server
+- Then you enable incoming connection to port 3306 on web-01 and sudo service restart mysql-server
+- sudo ufw allow 3306
 ```bash
 
-$ sudo ufw allow from 'replica_server_ip' to any port 3306
+$ sudo ufw allow from 3306
 
 $ sudo service mysql restart
-```
-- Now log back in to mysql-server to lock db and prepare binary file for replication.
-
-```bash
-$ mysql -uroot -p
-password:
-```
 ```mysql
-mysql> 
-
-mysql> FLUSH TABLES WITH READ LOCK;
 
 mysql> SHOW MASTER STATUS;
 
 +------------------+----------+--------------+------------------+-------------------+
 | File             | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
 +------------------+----------+--------------+------------------+-------------------+
-| mysql-bin.000001 |      149 | db           |                  |                   |
+| mysql-bin.000001 |      154 | tyrell_corp  |                  |                   |
 +------------------+----------+--------------+------------------+-------------------+
 
-```
-_Take note of the binary log and the position, jot it down or you leave this window open and you open another window to continue_
-
-- you then export the db from myql-server to local machine and then copy this db to replica machine
-
-```bash
-$ mysqldump -uroot -p db_name > export_db_name.sql
-
-$ scp -i _idenetity_file_ export_db_name.sql user@machine_ip:location
-```
-- Then ssh to replica machine ip_adress to import this tables to replica mysql-server
-
-```bash
-
-$ mysql -uroot -p 
-password:
-
-
-mysql> CREATE DATABASE db_name;
-
-mysql>exit
-bye
-
-$ mysql -uroot p db_name < export_db_name.sql
-password:
-
-# Now edit the config file in /etc/mysql/mysql.conf.d/mysqld.cnf and then reload mysql-server
+# Now edit the config file in /etc/mysql/mysql.conf.d/mysqld.cnf and then reload mysql-server on web-02
+# our replica server
 
 ```bash
 
 server-id = 2
 log_bin = /var/log/mysql/mysql-bin.log
-binlog_do_db = db_name_from_master_mysql-server
+binlog_do_db = tyrell_corp
 relay_log = /var/log/mysql/mysql-relay-bin.log
 
 $ sudo service mysql restart
@@ -200,14 +168,17 @@ password:
 mysql>
 ```
 ```mysql
-
+our master is web-01 configure its ip
+log file and log position u can find it from web-01, Type
+mysql> show master status;
 mysql> CHANGE MASTER TO
-    -> MASTER_HOST='source_host_name',
-    -> MASTER_USER='replication_user_name',
-    -> MASTER_PASSWORD='replication_password',
-    -> MASTER_LOG_FILE='recorded_log_file_name',
-    -> MASTER_LOG_POS=recorded_log_position;
+    -> MASTER_HOST='54.90.12.230',
+    -> MASTER_USER='replica_user',
+    -> MASTER_PASSWORD='sumaya',
+    -> MASTER_LOG_FILE='mysql-bin.000001',
+    -> MASTER_LOG_POS=154;
 
 -- Then you start slave
 mysql> START SLAVE;
+mysql> show slave status\G
 ```
