@@ -168,9 +168,9 @@ password:
 mysql>
 ```
 ```mysql
-our master is web-01 configure its ip
-log file and log position u can find it from web-01, Type
-mysql> show master status;
+-- our master is web-01 configure its ip
+-- log file and log position u can find it from web-01, Type
+-- mysql> show master status;
 mysql> CHANGE MASTER TO
     -> MASTER_HOST='54.90.12.230',
     -> MASTER_USER='replica_user',
