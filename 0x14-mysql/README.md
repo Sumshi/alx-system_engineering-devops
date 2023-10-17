@@ -192,3 +192,6 @@ Requirements:
    The Bash script accepts one argument that is the password used to connect to the MySQL database
 
 ```
+mysqldump -u root -p"$1" --all-databases > backup.sql
+tar -zcvf "$(date '+%d-%m-%Y').tar.gz" backup.sql
+```
