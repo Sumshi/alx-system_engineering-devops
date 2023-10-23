@@ -4,7 +4,6 @@
 
 
 import requests
-from urllib import request
 import sys
 
 
