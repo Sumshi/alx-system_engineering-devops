@@ -3,9 +3,8 @@
 
 import csv
 from urllib import request
-import sys
-from requests import *
 from sys import argv
+from requests import *
 
 
 if __name__ == "__main__":
