@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""export data in the CSV format"""
+"""export data to json format"""
 
 import csv
 from urllib import request
