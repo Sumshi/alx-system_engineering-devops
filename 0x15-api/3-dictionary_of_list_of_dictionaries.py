@@ -29,7 +29,8 @@ if __name__ == "__main__":
         username = user.get("username")
 
         # send a request to retrieve user's todo list
-        url = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(user_id)
+        url = ('https://jsonplaceholder.typicode.com/users/{}/todos'
+               .format(user_id))
 
         # store the response from the api in response variable
         response = get(url)
