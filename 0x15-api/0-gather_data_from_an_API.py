@@ -2,7 +2,7 @@
 
 """
 Gather data from an API
-for a given employee ID, returns information about his/her 
+for a given employee ID, returns information about his/her
 todo list progress.
 """
 
