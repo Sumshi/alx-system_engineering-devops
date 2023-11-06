@@ -1,6 +1,6 @@
 ``` This report is based on 0x0D. Web stack debugging #0```
 <br>
-<img src="postmortem software.png" alt="postmortem" width="500" height="500">
+<img src="postmortem software.png" alt="postmortem" width="1000" height="500">
 
 <h1>Incident Postmortem: Apache Service Not Running in Docker Container</h1>
 <h5><b>Incident Summary:</h5></b>
