@@ -6,8 +6,9 @@ was to set up an Apache web server to return a page containing "Hello Holberton"
 when querying the root of the container. The incident was related to the Apache service
 not running within the Docker container, causing a "curl: (52) Empty reply from server" error.<p>
 
-<ul>Incident Timeline:</ul>
+<h5>Incident Timeline:</h5>
+<ol>
 <li>[27-9-2023:10.30am]: The incident occurred while attempting to test the Apache web server setup by running a "curl" command to query the container at port 8080.</li>
 <li>[27-9-2023:10.35am]: The "curl" command returned an error: "curl: (52) Empty reply from server," indicating that no response was received</li>
 <li>[27-9-2023:10.40am]: A decision was made to investigate the issue by connecting to the specific Docker container to check the status of the Apache service.</li>
-</ul>
+</ol>
