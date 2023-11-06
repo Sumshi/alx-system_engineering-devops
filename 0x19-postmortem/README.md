@@ -17,3 +17,23 @@ not running within the Docker container, causing a "curl: (52) Empty reply from 
 <p>Root Cause: The root cause of the incident was determined to be the Apache service not running within the Docker container.</p>
 
 <h5><b>Resolution Steps:</h5></b>
+<ol>
+<li>[27-9-2023:10.40am]: After accessing the Docker container using docker exec, it was confirmed that the Apache service was not running.</li>
+<li>[27-9-2023:10.41am]: The Apache service was started within the Docker container using the appropriate command.(sudo service apache2 start)</li>
+<li>[27-9-2023:10.41am]: After successfully starting the Apache service, the container was tested again by running the "curl" command.</li>
+<li>[27-9-2023:10.42am]: This time, the "curl" command returned the expected response, "Hello Holberton," indicating that the Apache web server was operational.</li>
+
+<h5><b>Lessons Learned:</h5></b>
+<p><em>Proper service monitoring and maintenance are crucial for ensuring the reliability of containerized applications. Regularly checking the status of essential services can help prevent issues related to service failures.</p></em>
+
+<h5><b>Preventive Measures:</h5></b>
+<p><em>Implement a monitoring solution to proactively detect service failures and automatically restart them when necessary.</p></em>
+<p><em>Configure Apache and other essential services to start automatically when the Docker container is launched.</p></em>
+
+<h5><b>Incident Closure:</h5></b>
+<p>This postmortem summarizes the incident where the Apache service was not initially running within a Docker container.
+The incident was successfully resolved, with the Apache service being started, and the container responding as expected.
+Appropriate preventive measures will be taken to avoid similar incidents in the future.
+</p>
+
+<p><em>Date and Time of Closure: 27-9-2023 at 11am</p></em>
