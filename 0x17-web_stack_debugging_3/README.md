@@ -8,7 +8,7 @@ sudo apt install tmux</li>
 <li>split the terminal into two: ctrl+b then %</li>
 <li>to go to the other terminal: ctrl+b then arrow key</li>
 <li>type:ps aux to observe the process id for www-data apache2</li>
-<li>after getting the process id, trace it using strace -p <process id></li>
+<li>after getting the process id, trace it using strace -p process id</li>
 <li>Then on the other terminal, curl -sI 127.0.0.1</li>
 <li>observe the output returned by strace, 0 indicates success
 -1 indicates error</li>
